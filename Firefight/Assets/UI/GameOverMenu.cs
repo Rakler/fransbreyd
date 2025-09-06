@@ -15,14 +15,15 @@ public class GameOverMenu : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverUI.SetActive(true);
-        Time.timeScale = 0f; // freeze the game
+        Time.timeScale = 0f; // pause the game
     }
 
     public void Restart()
     {
-        Time.timeScale = 1f; // unfreeze
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // reload current scene
+        Time.timeScale = 1f; // unpause the game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 
     public void QuitGame(int sceneIndex)
     {
