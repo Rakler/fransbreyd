@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     PlayerInputSet input;
     Vector2 moveInput;
 
+
+
     [Header("Movement")]
     public float moveSpeed = 15f;
 
@@ -87,7 +89,6 @@ public class Player : MonoBehaviour
 
     void OnDisable()
     {
-        // Disable the input system when the player is disabled.
         input.Disable();
     }
 
@@ -100,18 +101,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
 
-        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
-        // rb.AddForce(force * moveSpeed);
     }
 
     void FixedUpdate()
     {
-        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
-
-        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
-        // rb.AddForce(force * moveSpeed);
 
         Vector2 desired = moveInput * maxSpeed;
         Vector2 dv = desired - rb.linearVelocity;
@@ -145,6 +139,9 @@ public class Player : MonoBehaviour
         Debug.Log("Try pickup");
         nozzleRb = hose ? hose.nozzle : null;
         if (!nozzleRb) { Debug.LogWarning("No nozzle found on HoseManager."); return; }
+
+        var nozzleController = nozzleRb.GetComponent<Nozzle>();
+        nozzleController.BeginSpray(GetComponentInChildren<Rigidbody2D>());
 
         if (Vector2.Distance(nozzleRb.position, (Vector2)hand.position) > pickupRange)
             return; // too far to grab
