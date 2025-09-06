@@ -108,6 +108,15 @@ public class Player : MonoBehaviour
         // rb.AddForce(force * moveSpeed);
         JoyDir.x = Input.GetAxisRaw("Horizontal" + joystickNum);
         JoyDir.y = Input.GetAxisRaw("Vertical" + joystickNum);
+
+        if (Input.GetButtonDown("Fire" + joystickNum))
+        {
+            TryPickup();
+        }
+        if (Input.GetButtonDown("Drop" + joystickNum))
+        {
+            Drop();
+        }
     }
 
     void FixedUpdate()
@@ -129,12 +138,13 @@ public class Player : MonoBehaviour
         rb.AddForce(force, ForceMode2D.Force);
         rb.linearDamping = linDrag; // mild baseline damping
 
-        
+
     }
 
 
     void Drop()
     {
+        Debug.Log("Drop" + joystickNum);
         if (gripJoint) Destroy(gripJoint);
         gripJoint = null;
 
