@@ -14,6 +14,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Pickup",
+                    "type": "Button",
+                    "id": "a2bbe4f8-7189-4f2f-bfd8-8ed0da48b9d0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Drop",
+                    "type": "Button",
+                    "id": "ff6cc2ac-455f-4ee5-a760-be27212a04e7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -71,6 +89,28 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e8e62f52-44b2-4682-b10f-3a795d4f4405",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "Pickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cec52b89-c395-4097-abae-a8a7850942d9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
