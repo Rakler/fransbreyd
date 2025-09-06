@@ -27,7 +27,7 @@ public class Nozzle : MonoBehaviour
         nozzleRb = GetComponent<Rigidbody2D>();
         if (jet)
         {
-            jet.drawMode = SpriteDrawMode.Tiled; // lets us change length at runtime
+            //jet.drawMode = SpriteDrawMode.Tiled; // lets us change length at runtime
             jet.gameObject.SetActive(false);
         }
         if (impact) impact.gameObject.SetActive(false);
@@ -39,16 +39,18 @@ public class Nozzle : MonoBehaviour
     {
         holder = hoseHolder;
         spraying = true;
+        if (jet) jet.gameObject.SetActive(true);
         animator.SetBool("IsSpray", spraying);
 
         Debug.Log("Spraying has begun! " + animator.GetBool("IsSpray"));
-        if (jet) jet.gameObject.SetActive(true);
+        
         if (impact) impact.gameObject.SetActive(true);
         
     }
 
     public void EndSpray()
     {
+        Debug.Log("Is jet enabled: " + jet.enabled);
         spraying = false;
         holder = null;
         animator.SetBool("IsSpray", spraying);
@@ -61,21 +63,22 @@ public class Nozzle : MonoBehaviour
     {
         if (!spraying || !jet) return;
 
-        Vector2 origin = muzzle.position;
-        Vector2 dir = muzzle.right.normalized;
+         Vector2 origin = muzzle.position;
+         Vector2 dir = muzzle.right.normalized;
 
         // Find hit point
         var hit = Physics2D.Raycast(origin, dir, maxDistance, hitMask);
         float dist = hit ? hit.distance : maxDistance;
 
         // Place/size the jet sprite
-        float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        jet.transform.SetPositionAndRotation(origin + dir * (dist * 0.5f), Quaternion.Euler(0,0,ang));
-        jet.size = new Vector2(dist, width);            // length = distance, height = width
+        // float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        // jet.transform.SetPositionAndRotation(origin + dir * (dist * 0.5f), Quaternion.Euler(0,0,ang));
+        //jet.size = new Vector2(dist, width);            // length = distance, height = width
 
         // Optional: place impact sprite and apply push
         if (impact)
         {
+            Debug.Log("Impact!");
             if (hit)
             {
                 impact.gameObject.SetActive(true);
@@ -93,16 +96,16 @@ public class Nozzle : MonoBehaviour
         }
 
         // Recoil back through the hose (and a bit into the player if attached)
-        Vector2 recoil = -dir * (recoilPerSecond * pressure) * Time.fixedDeltaTime;
-        nozzleRb.AddForce(recoil, ForceMode2D.Force);
-        if (holder) holder.AddForce(recoil * 0.5f, ForceMode2D.Force);
+        // Vector2 recoil = -dir * (recoilPerSecond * pressure) * Time.fixedDeltaTime;
+        // nozzleRb.AddForce(recoil, ForceMode2D.Force);
+        // if (holder) holder.AddForce(recoil * 0.5f, ForceMode2D.Force);
 
         // (Optional) Area push along the whole beam for multiple targets:
-        var center = origin + dir * (dist * 0.5f);
-        var hits = Physics2D.BoxCastAll(center, new Vector2(dist, width), ang, Vector2.zero, 0f, hitMask);
-        foreach (var h in hits)
-            if (h.rigidbody) h.rigidbody.AddForce(dir * (pushPerSecond * 0.5f * pressure) * Time.fixedDeltaTime,
-                                                  ForceMode2D.Force);
+        // var center = origin + dir * (dist * 0.5f);
+        // var hits = Physics2D.BoxCastAll(center, new Vector2(dist, width), ang, Vector2.zero, 0f, hitMask);
+        // foreach (var h in hits)
+        //     if (h.rigidbody) h.rigidbody.AddForce(dir * (pushPerSecond * 0.5f * pressure) * Time.fixedDeltaTime,
+        //                                           ForceMode2D.Force);
     }
 }
 
