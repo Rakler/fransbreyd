@@ -124,6 +124,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8026449401697275319, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
   m_PrefabInstance: {fileID: 154934542}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &107890891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6932712062675191267, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+  m_PrefabInstance: {fileID: 154934542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebfec4aa2deccf4ba6fc6bae2415eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoseManager
 --- !u!1001 &154934542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,7 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   hose1: {fileID: 898035883}
-  hose2: {fileID: 0}
+  hose2: {fileID: 107890891}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!4 &209977021
 Transform:
   m_ObjectHideFlags: 0
@@ -292,6 +305,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9097706759659324565, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
+      propertyPath: hose
+      value: 
+      objectReference: {fileID: 107890891}
     - target: {fileID: -9097706759659324565, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
       propertyPath: joystickNum
       value: 2

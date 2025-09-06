@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public string joystickNum = "";
     Rigidbody2D rb;
-    PlayerInputSet input;
     Vector2 moveInput;
 
     private Vector2 JoyDir = Vector2.zero;
@@ -34,7 +33,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        input = new PlayerInputSet();
 
         if (!hand)
         {
@@ -55,57 +53,9 @@ public class Player : MonoBehaviour
 
     }
 
-    void OnEnable()
-    {
-        //Enable the input system when the player is enabled.
-        // input.Enable();
-
-
-        // //Subscribe to movement input event.
-        // input.Player.Movement.performed += ctx =>
-        //  {
-        //      moveInput = ctx.ReadValue<Vector2>();
-        //  };
-
-        // // Subscribe to movement canceled event.
-        // input.Player.Movement.canceled += ctx =>
-        // {
-        //     moveInput = Vector2.zero;
-        // };
-
-        // input.Player.Pickup.performed += ctx =>
-        // {
-        //     Debug.Log("Pickup");
-        //     TryPickup();
-        // };
-
-        // input.Player.Drop.performed += ctx =>
-        // {
-        //     Debug.Log("Drop");
-        //     Drop();
-        // };
-    }
-
-
-    void OnDisable()
-    {
-        // Disable the input system when the player is disabled.
-        input.Disable();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
-
-        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
-        // rb.AddForce(force * moveSpeed);
         JoyDir.x = Input.GetAxisRaw("Horizontal" + joystickNum);
         JoyDir.y = Input.GetAxisRaw("Vertical" + joystickNum);
 
@@ -121,11 +71,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
-
-        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
-        // rb.AddForce(force * moveSpeed);
-
         Vector2 desired = new Vector2(JoyDir.x, JoyDir.y) * maxSpeed;
         Vector2 dv = desired - rb.linearVelocity;
 
@@ -171,12 +116,6 @@ public class Player : MonoBehaviour
 
         if (gripJoint) return; // already holding
 
-        // // Create a fixed joint ON THE NOZZLE that connects to the player's hand
-        // gripJoint = nozzleRb.gameObject.AddComponent<FixedJoint2D>();
-        // gripJoint.connectedBody = handRb;
-        // gripJoint.autoConfigureConnectedAnchor = true;
-        // gripJoint.breakForce = Mathf.Infinity; // set lower if you want it to rip free
-
         // inside your TryPickup() where you currently create the grip
         gripJoint = nozzleRb.gameObject.AddComponent<FixedJoint2D>();
         gripJoint.connectedBody = rb;                 // <-- player's dynamic body
@@ -218,7 +157,7 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(hand.position, pickupRange);
     }
 
-    // (Optional) If you still want a debug log on nozzle bumps:
+    // Debug log on nozzle bumps:
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Hit " + collision.gameObject.name);
