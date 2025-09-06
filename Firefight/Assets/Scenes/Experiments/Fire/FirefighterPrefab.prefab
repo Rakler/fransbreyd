@@ -104,10 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb609fdaf2b90f4b9e0553a99b29b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  joystickNum: 
   moveSpeed: 15
   hose: {fileID: 0}
   hand: {fileID: 0}
   pickupRange: 0.9
+  maxSpeed: 8
+  accel: 60
+  linDrag: 6
 --- !u!50 &-5328877951994899559
 Rigidbody2D:
   serializedVersion: 5
@@ -134,4 +138,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

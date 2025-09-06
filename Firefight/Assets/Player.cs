@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 15f;
 
     [Header("Hose mechanics")]
-    public HoseManager hose;
+    public Hose hose;
     public Transform hand;
     public float pickupRange = 0.9f;
 
@@ -150,6 +150,7 @@ public class Player : MonoBehaviour
 
         if (nozzleRb)
             nozzleRb.AddForce((Vector2)hand.right * 2f, ForceMode2D.Impulse); // gentle toss
+        nozzleRb.GetComponent<Nozzle>().EndSpray();
 
         ToggleHoseVsPlayerCollisions(false);
         nozzleRb = null;
