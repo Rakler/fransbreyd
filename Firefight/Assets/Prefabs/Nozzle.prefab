@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6727863462414785696}
   - component: {fileID: 1830533853773332752}
   - component: {fileID: 5435843236625423950}
+  - component: {fileID: 8227130866840949953}
   m_Layer: 0
   m_Name: Nozzle
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809681223809881860}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.451, y: 2.845, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.006671705, w: 0.99997777}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.765}
 --- !u!212 &1723202308054924112
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.008027838, y: -0.25694606}
-  m_ConnectedAnchor: {x: -0.05337638, y: -1.1055061}
+  m_ConnectedAnchor: {x: 0.0022911166, y: -0.051363215}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -196,3 +197,19 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &8227130866840949953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809681223809881860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d26ec970bc7c044b970ef4bab9aa90e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  water: {fileID: 0}
+  pressure: 1
+  baseSpeed: 30
+  recoilPerSecond: 80
