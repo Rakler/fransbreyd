@@ -5,13 +5,13 @@ public class CountdownTimer : MonoBehaviour
 {
     public float timeRemaining = 300f; // 5 minutes
     public bool timerIsRunning = false;
-    public TextMeshProUGUI timeText; 
+    public TextMeshProUGUI timerText; 
     public GameObject gameOverScreen; // assign in Inspector
 
     private void Start()
     {
         timerIsRunning = true;
-        gameOverScreen.SetActive(false); // make sure it starts hidden
+        // gameOverScreen.SetActive(false); // make sure it starts hidden
     }
 
     private void Update()
@@ -41,7 +41,7 @@ public class CountdownTimer : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeToDisplay / 60);
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void TriggerGameOver()
