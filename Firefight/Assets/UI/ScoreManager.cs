@@ -1,13 +1,17 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int score = 0; // current points
+    public int score = 0; // current score
     public TextMeshProUGUI scoreText; // drag your PointsText UI here
+
+    public UnityEvent onScoreIncrease;
 
     void Start()
     {
+        onScoreIncrease.Invoke();
         UpdatePointsUI();
     }
 
@@ -16,6 +20,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         UpdatePointsUI();
+        onScoreIncrease.Invoke();
     }
 
     // Call this method to subtract points if needed
@@ -29,5 +34,10 @@ public class ScoreManager : MonoBehaviour
     void UpdatePointsUI()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 }
