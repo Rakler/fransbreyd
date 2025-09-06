@@ -17,16 +17,16 @@ public class Player : MonoBehaviour
     public Transform hand;
     public float pickupRange = 0.9f;
 
+    public float maxSpeed = 8f;
+    public float accel    = 60f;
+    public float linDrag  = 6f;
+
     //Runtime variables
     FixedJoint2D gripJoint;
     Rigidbody2D handRb;
     Rigidbody2D nozzleRb;
     Collider2D[] playerColliders;
     Collider2D[] hoseCols;
-
-    //Input actions
-    InputAction pickUpAction;
-    InputAction dropAction;
 
 
     void Awake()
@@ -51,10 +51,6 @@ public class Player : MonoBehaviour
 
         playerColliders = GetComponentsInChildren<Collider2D>();
 
-        pickUpAction = new InputAction("PickUp", binding: "<Keyboard>/e");
-        dropAction = new InputAction("Drop", binding: "<Keyboard>/q");
-        // pickUpAction.performed += _ => TryPickup();
-        // dropAction.performed += _ => Drop();
     }
 
     void OnEnable()
@@ -104,14 +100,34 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
+        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
 
-        Vector2 force = new Vector2(moveInput.x, moveInput.y);
-        rb.AddForce(force * moveSpeed);
+        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
+        // rb.AddForce(force * moveSpeed);
+    }
+
+    void FixedUpdate()
+    {
+        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
+
+        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
+        // rb.AddForce(force * moveSpeed);
+
+        Vector2 desired = moveInput * maxSpeed;
+        Vector2 dv = desired - rb.linearVelocity;
+
+        // Cap how hard we accelerate
+        float maxForce = accel * rb.mass;
+        Vector2 force = dv * rb.mass / Time.fixedDeltaTime;
+        if (force.sqrMagnitude > maxForce * maxForce)
+            force = force.normalized * maxForce;
+
+        rb.AddForce(force, ForceMode2D.Force);
+        rb.linearDamping = linDrag; // mild baseline damping
     }
 
 
-        void Drop()
+    void Drop()
     {
         if (gripJoint) Destroy(gripJoint);
         gripJoint = null;
@@ -135,11 +151,20 @@ public class Player : MonoBehaviour
 
         if (gripJoint) return; // already holding
 
-        // Create a fixed joint ON THE NOZZLE that connects to the player's hand
+        // // Create a fixed joint ON THE NOZZLE that connects to the player's hand
+        // gripJoint = nozzleRb.gameObject.AddComponent<FixedJoint2D>();
+        // gripJoint.connectedBody = handRb;
+        // gripJoint.autoConfigureConnectedAnchor = true;
+        // gripJoint.breakForce = Mathf.Infinity; // set lower if you want it to rip free
+
+        // inside your TryPickup() where you currently create the grip
         gripJoint = nozzleRb.gameObject.AddComponent<FixedJoint2D>();
-        gripJoint.connectedBody = handRb;
-        gripJoint.autoConfigureConnectedAnchor = true;
-        gripJoint.breakForce = Mathf.Infinity; // set lower if you want it to rip free
+        gripJoint.connectedBody = rb;                 // <-- player's dynamic body
+        gripJoint.autoConfigureConnectedAnchor = false;
+        // Lock nozzle to the player's "hand" point:
+        gripJoint.anchor = nozzleRb.transform.InverseTransformPoint(hand.position);
+        gripJoint.connectedAnchor = rb.transform.InverseTransformPoint(hand.position);
+        gripJoint.breakForce = Mathf.Infinity;        // set lower if you want it to rip free
 
         CacheHoseColliders();
         ToggleHoseVsPlayerCollisions(true);

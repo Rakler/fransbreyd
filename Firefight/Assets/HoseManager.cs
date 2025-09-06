@@ -153,7 +153,7 @@ public class HoseManager : MonoBehaviour
                 }
 
                 joint.useLimits = true;
-                joint.limits = new JointAngleLimits2D { min = -20f, max = 20f };
+                joint.limits = new JointAngleLimits2D { min = -45f, max = 45f };
                 joint.enableCollision = true;
             }
 
