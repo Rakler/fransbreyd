@@ -12,6 +12,6 @@ public class WaterController : MonoBehaviour
     void Update()
     {
         //Move to the right constantly
-        transform.Translate(Vector2.right * Time.deltaTime * 2);
+        //transform.Translate(Vector2.right * Time.deltaTime * 2);
     }
 }
