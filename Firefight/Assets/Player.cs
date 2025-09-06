@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-
+    public string joystickNum = "";
     Rigidbody2D rb;
     PlayerInputSet input;
     Vector2 moveInput;
 
-
+    private Vector2 JoyDir = Vector2.zero;
 
     [Header("Movement")]
     public float moveSpeed = 15f;
@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
     public float pickupRange = 0.9f;
 
     public float maxSpeed = 8f;
-    public float accel    = 60f;
-    public float linDrag  = 6f;
+    public float accel = 60f;
+    public float linDrag = 6f;
 
     //Runtime variables
     FixedJoint2D gripJoint;
@@ -58,37 +58,38 @@ public class Player : MonoBehaviour
     void OnEnable()
     {
         //Enable the input system when the player is enabled.
-        input.Enable();
+        // input.Enable();
 
 
-        //Subscribe to movement input event.
-        input.Player.Movement.performed += ctx =>
-         {
-             moveInput = ctx.ReadValue<Vector2>();
-         };
+        // //Subscribe to movement input event.
+        // input.Player.Movement.performed += ctx =>
+        //  {
+        //      moveInput = ctx.ReadValue<Vector2>();
+        //  };
 
-        // Subscribe to movement canceled event.
-        input.Player.Movement.canceled += ctx =>
-        {
-            moveInput = Vector2.zero;
-        };
+        // // Subscribe to movement canceled event.
+        // input.Player.Movement.canceled += ctx =>
+        // {
+        //     moveInput = Vector2.zero;
+        // };
 
-        input.Player.Pickup.performed += ctx =>
-        {
-            Debug.Log("Pickup");
-            TryPickup();
-        };
+        // input.Player.Pickup.performed += ctx =>
+        // {
+        //     Debug.Log("Pickup");
+        //     TryPickup();
+        // };
 
-        input.Player.Drop.performed += ctx =>
-        {
-            Debug.Log("Drop");
-            Drop();
-        };
+        // input.Player.Drop.performed += ctx =>
+        // {
+        //     Debug.Log("Drop");
+        //     Drop();
+        // };
     }
 
 
     void OnDisable()
     {
+        // Disable the input system when the player is disabled.
         input.Disable();
     }
 
@@ -101,13 +102,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
 
+        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
+        // rb.AddForce(force * moveSpeed);
+        JoyDir.x = Input.GetAxisRaw("Horizontal" + joystickNum);
+        JoyDir.y = Input.GetAxisRaw("Vertical" + joystickNum);
     }
 
     void FixedUpdate()
     {
+        // rb.linearVelocity = new Vector2(moveInput.x, moveInput.y) * moveSpeed;
 
-        Vector2 desired = moveInput * maxSpeed;
+        // Vector2 force = new Vector2(moveInput.x, moveInput.y);
+        // rb.AddForce(force * moveSpeed);
+
+        Vector2 desired = new Vector2(JoyDir.x, JoyDir.y) * maxSpeed;
         Vector2 dv = desired - rb.linearVelocity;
 
         // Cap how hard we accelerate
@@ -118,6 +128,8 @@ public class Player : MonoBehaviour
 
         rb.AddForce(force, ForceMode2D.Force);
         rb.linearDamping = linDrag; // mild baseline damping
+
+        
     }
 
 
@@ -178,8 +190,8 @@ public class Player : MonoBehaviour
         }
         hoseCols = list.ToArray();
     }
-    
-        void ToggleHoseVsPlayerCollisions(bool ignore)
+
+    void ToggleHoseVsPlayerCollisions(bool ignore)
     {
         if (hoseCols == null || playerColliders == null) return;
         foreach (var pc in playerColliders)
