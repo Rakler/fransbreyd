@@ -321,8 +321,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "eirikur biskopst\xF8\neystein cornette"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
-  m_sharedMaterial: {fileID: 1377772887468318877, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -536,8 +536,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Controls
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 57e23f8d7c21449f2b41836317bcc064, type: 2}
-  m_sharedMaterial: {fileID: -4426880543373672434, guid: 57e23f8d7c21449f2b41836317bcc064, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -630,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &170140521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5783775338262759190, guid: 72a236c75e5c44fceb490dc75e328b69, type: 3}
+  m_Sprite: {fileID: 5783775338262759190, guid: e4d8ed69e87891440907a4f0383e6f7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -896,8 +896,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
-  m_sharedMaterial: {fileID: 1377772887468318877, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1032,8 +1032,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "brynleif andreasen\ngert poulsen\nhe\xF0in steint\xFAn gaard"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
-  m_sharedMaterial: {fileID: 1377772887468318877, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1137,7 +1137,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 0005b5138f0254f10b5e57b425af0dbb, type: 3}
+  m_Resource: {fileID: 8300000, guid: ded4fb491d6ce5445aa7e8b8fad5055a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1330,7 +1330,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scene1
+          m_StringArgument: Level01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &506988913
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5783775338262759190, guid: 72a236c75e5c44fceb490dc75e328b69, type: 3}
+  m_Sprite: {fileID: 5783775338262759190, guid: e4d8ed69e87891440907a4f0383e6f7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1917,8 +1917,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: tango with fire
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 57e23f8d7c21449f2b41836317bcc064, type: 2}
-  m_sharedMaterial: {fileID: -4426880543373672434, guid: 57e23f8d7c21449f2b41836317bcc064, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 709d21eb2d389024fa5c2a974e4d1d33, type: 2}
+  m_sharedMaterial: {fileID: -148705510929124415, guid: 709d21eb2d389024fa5c2a974e4d1d33, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2053,8 +2053,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Controls
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
-  m_sharedMaterial: {fileID: 1377772887468318877, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4719254140122305566, guid: 339c2e2afc58349b3a2a13a9897b5744, type: 3}
+  m_Sprite: {fileID: -4719254140122305566, guid: 5f2cd95cefc81b64dbac64fa73d3a5f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2308,8 +2308,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
-  m_sharedMaterial: {fileID: 1377772887468318877, guid: eb2eb4856a7af465f835700fc3bcc108, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2500,7 +2500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5783775338262759190, guid: 72a236c75e5c44fceb490dc75e328b69, type: 3}
+  m_Sprite: {fileID: 5783775338262759190, guid: e4d8ed69e87891440907a4f0383e6f7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

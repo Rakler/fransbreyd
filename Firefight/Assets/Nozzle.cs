@@ -43,6 +43,7 @@ public class Nozzle : MonoBehaviour
 
         if (!audioSource)
             audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.volume = 0.05f;
     }
 
 
