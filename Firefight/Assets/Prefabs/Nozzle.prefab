@@ -221,6 +221,9 @@ MonoBehaviour:
   pressure: 1
   recoilPerSecond: 80
   pushPerSecond: 20
+  sprayStartSound: {fileID: 8300000, guid: d65e8a541c4104046b405eb1157de629, type: 3}
+  sprayLoopSound: {fileID: 8300000, guid: cebb36f829ab342f69d55fd0fe75ed92, type: 3}
+  sprayStopSound: {fileID: 8300000, guid: 131dc1fba0cee43fb979401832ca6640, type: 3}
   animator: {fileID: 0}
 --- !u!1 &2956677481907681510
 GameObject:

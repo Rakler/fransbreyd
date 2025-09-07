@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Nozzle : MonoBehaviour
@@ -17,6 +18,12 @@ public class Nozzle : MonoBehaviour
     public float recoilPerSecond = 80f; // hose kickback while spraying
     public float pushPerSecond = 20f;   // push applied to hit rigidbodies
 
+    AudioSource audioSource;
+    public AudioClip sprayStartSound;
+    public AudioClip sprayLoopSound;
+    public AudioClip sprayStopSound;
+
+
     public Animator animator;
     Rigidbody2D nozzleRb;
     Rigidbody2D holder;                 // player's RB while held
@@ -32,6 +39,9 @@ public class Nozzle : MonoBehaviour
         }
         if (impact) impact.gameObject.SetActive(false);
         if (!muzzle) muzzle = transform; // fallback
+
+        if (!audioSource)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
 
@@ -43,9 +53,44 @@ public class Nozzle : MonoBehaviour
         animator.SetBool("IsSpray", spraying);
 
         Debug.Log("Spraying has begun! " + animator.GetBool("IsSpray"));
-        
+
         if (impact) impact.gameObject.SetActive(true);
-        
+
+        if (impact) impact.gameObject.SetActive(true);
+
+        if (audioSource && sprayStartSound)
+        {
+            StartCoroutine(PlaySpraySounds());
+        }
+
+        // if (audioSource && sprayStartSound)
+        // {
+        //     audioSource.clip = sprayStartSound;
+        //     audioSource.loop = false;
+        //     audioSource.Play();
+
+        //     // Queue up the loop sound to start after the start sound finishes
+        //     if (sprayLoopSound)
+        //     {
+        //         audioSource.PlayScheduled(AudioSettings.dspTime + sprayStartSound.length);
+        //         audioSource.loop = true;
+        //         audioSource.clip = sprayLoopSound;
+        //     }
+        // }
+    }
+
+    IEnumerator PlaySpraySounds()
+    {
+        audioSource.clip = sprayStartSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(sprayStartSound.length);
+
+        if (sprayLoopSound)
+        {
+            audioSource.clip = sprayLoopSound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     public void EndSpray()
@@ -56,15 +101,22 @@ public class Nozzle : MonoBehaviour
         animator.SetBool("IsSpray", spraying);
         if (jet) jet.gameObject.SetActive(false);
         if (impact) impact.gameObject.SetActive(false);
-        
+
+        if (audioSource && sprayStartSound)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+            audioSource.clip = null;
+        }
+
     }
-    
-      void FixedUpdate()
+
+    void FixedUpdate()
     {
         if (!spraying || !jet) return;
 
-         Vector2 origin = muzzle.position;
-         Vector2 dir = muzzle.right.normalized;
+        Vector2 origin = muzzle.position;
+        Vector2 dir = muzzle.right.normalized;
 
         // Find hit point
         var hit = Physics2D.Raycast(origin, dir, maxDistance, hitMask);
