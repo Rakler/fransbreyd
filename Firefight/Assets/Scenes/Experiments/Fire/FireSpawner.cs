@@ -33,6 +33,8 @@ public class Script : MonoBehaviour
     {
         Vector2 randomPosition = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(-spawnRangeY, spawnRangeY));
 
-        Instantiate(firePrefab, randomPosition, Quaternion.identity);
+        GameObject fire = Instantiate(firePrefab, randomPosition, Quaternion.identity);
+        var script = fire.GetComponent<FireHealthManager>();
+        script.scoreManager = FindFirstObjectByType<ScoreManager>();
     }
 }

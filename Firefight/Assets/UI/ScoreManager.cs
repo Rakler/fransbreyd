@@ -40,4 +40,10 @@ public class ScoreManager : MonoBehaviour
     {
         return score;
     }
+
+    public void IncrementScore()
+    {
+        score++;
+        UpdatePointsUI();
+    }
 }

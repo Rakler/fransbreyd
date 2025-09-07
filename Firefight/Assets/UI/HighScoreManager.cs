@@ -24,10 +24,11 @@ public class HighScoreManager : MonoBehaviour
         {
             highScore = newScore;
         }
-    } 
+    }
 
     void UpdateHighScoreUI()
     {
         scoreText.text = "High score: " + highScore;
     }
+    
 }

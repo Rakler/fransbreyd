@@ -49,7 +49,7 @@ public class CountdownTimer : MonoBehaviour
     void TriggerGameOver()
     {
         Debug.Log("⏰ Game Over!");
-        sceneLoader.LoadScene("GameOver");
+        sceneLoader.LoadScene("MainMenu");
         // gameOverScreen.SetActive(true); // show game over UI
         // You can also pause the game here if needed:
         // Time.timeScale = 0f;

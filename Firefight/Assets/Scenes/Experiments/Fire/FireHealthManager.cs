@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class FireHealthManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class FireHealthManager : MonoBehaviour
     public int currentHealth;
     public int growthRate = 5; // Health increase per second
     public int damageRate = 1; // Health decrease per second when in contact with water
+
+    public ScoreManager scoreManager;
 
     private float fireSize;
 
@@ -51,13 +54,18 @@ public class FireHealthManager : MonoBehaviour
 
     IEnumerator HandleDeath(bool isSmoke, Animator localAnimator)
     {
-        
+        if (scoreManager)
+        {
+            scoreManager.IncrementScore();
+        }
+
         yield return new WaitForSeconds(5f);
-        
+
         // Handle transition over to smoke
         localAnimator.SetBool("IsSmoke", !isSmoke);
         transform.localScale = new Vector2(fireSize, fireSize);
         Destroy(gameObject);
+
     }
 
 
