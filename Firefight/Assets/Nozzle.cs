@@ -102,7 +102,7 @@ public class Nozzle : MonoBehaviour
         if (jet) jet.gameObject.SetActive(false);
         if (impact) impact.gameObject.SetActive(false);
 
-        if (audioSource && sprayStartSound)
+        if (audioSource)
         {
             audioSource.Stop();
             audioSource.loop = false;

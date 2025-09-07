@@ -131,7 +131,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   growthRate: 5
-  damageRate: 6
+  damageRate: 7
 --- !u!61 &-8941507963334349913
 BoxCollider2D:
   m_ObjectHideFlags: 0
