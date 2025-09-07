@@ -63,7 +63,7 @@ public class FireHealthManager : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Water"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
             TakeDamage(damageRate);
         }

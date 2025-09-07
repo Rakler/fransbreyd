@@ -83,7 +83,13 @@ public class Player : MonoBehaviour
         rb.AddForce(force, ForceMode2D.Force);
         rb.linearDamping = linDrag; // mild baseline damping
 
-
+        // Rotate player to face movement direction
+        if (rb.linearVelocity.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
+            angle = angle + 90; // Adjust if your sprite faces up
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
 

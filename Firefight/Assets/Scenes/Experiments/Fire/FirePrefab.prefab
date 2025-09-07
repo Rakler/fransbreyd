@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
   maxHealth: 100
   currentHealth: 0
+  growthRate: 5
+  damageRate: 5
 --- !u!61 &-8941507963334349913
 BoxCollider2D:
   m_ObjectHideFlags: 0

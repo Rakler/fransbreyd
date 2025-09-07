@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: joystickNum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2376883505155223547, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4283364591601442059, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.71587
