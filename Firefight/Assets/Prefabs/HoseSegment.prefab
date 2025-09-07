@@ -145,8 +145,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -25
+    m_UpperAngle: 25
 --- !u!70 &6491806547815810554
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: faaaf6ea866065f418d76916ce409588, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

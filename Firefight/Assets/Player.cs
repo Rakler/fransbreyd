@@ -114,14 +114,14 @@ public class Player : MonoBehaviour
         nozzleRb = hose ? hose.nozzle : null;
         if (!nozzleRb) { Debug.LogWarning("No nozzle found on HoseManager."); return; }
 
-        var nozzleController = nozzleRb.GetComponent<Nozzle>();
-        nozzleController.BeginSpray(GetComponentInChildren<Rigidbody2D>());
+       
 
         if (Vector2.Distance(nozzleRb.position, (Vector2)hand.position) > pickupRange)
             return; // too far to grab
 
         if (gripJoint) return; // already holding
-
+         var nozzleController = nozzleRb.GetComponent<Nozzle>();
+        nozzleController.BeginSpray(GetComponentInChildren<Rigidbody2D>());
         // inside your TryPickup() where you currently create the grip
         gripJoint = nozzleRb.gameObject.AddComponent<FixedJoint2D>();
         gripJoint.connectedBody = rb;                 // <-- player's dynamic body
