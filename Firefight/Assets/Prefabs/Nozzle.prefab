@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 809681223809881860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c0b6f27a7cd10448028341a5b2102e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d26ec970bc7c044b970ef4bab9aa90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   muzzle: {fileID: 0}
@@ -221,9 +221,9 @@ MonoBehaviour:
   pressure: 1
   recoilPerSecond: 80
   pushPerSecond: 20
-  sprayStartSound: {fileID: 8300000, guid: d65e8a541c4104046b405eb1157de629, type: 3}
-  sprayLoopSound: {fileID: 8300000, guid: cebb36f829ab342f69d55fd0fe75ed92, type: 3}
-  sprayStopSound: {fileID: 8300000, guid: 131dc1fba0cee43fb979401832ca6640, type: 3}
+  sprayStartSound: {fileID: 0}
+  sprayLoopSound: {fileID: 0}
+  sprayStopSound: {fileID: 0}
   animator: {fileID: 0}
 --- !u!1 &2956677481907681510
 GameObject:
