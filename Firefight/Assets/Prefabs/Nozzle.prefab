@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 809681223809881860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d26ec970bc7c044b970ef4bab9aa90e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3c0b6f27a7cd10448028341a5b2102e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   muzzle: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   pressure: 1
   recoilPerSecond: 80
   pushPerSecond: 20
-  animator: {fileID: 8372379060954689311}
+  animator: {fileID: 0}
 --- !u!1 &2956677481907681510
 GameObject:
   m_ObjectHideFlags: 0
