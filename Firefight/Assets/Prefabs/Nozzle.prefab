@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 809681223809881860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d26ec970bc7c044b970ef4bab9aa90e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3c0b6f27a7cd10448028341a5b2102e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   muzzle: {fileID: 0}
@@ -221,9 +221,9 @@ MonoBehaviour:
   pressure: 1
   recoilPerSecond: 80
   pushPerSecond: 20
-  sprayStartSound: {fileID: 0}
-  sprayLoopSound: {fileID: 0}
-  sprayStopSound: {fileID: 0}
+  sprayStartSound: {fileID: 8300000, guid: 12c88de0426d55543933046b812bd0c6, type: 3}
+  sprayLoopSound: {fileID: 8300000, guid: 49b4184986d0a1243995938314c83df6, type: 3}
+  sprayStopSound: {fileID: 8300000, guid: a5d4e07e3285b1b48bcf6569dd0788c7, type: 3}
   animator: {fileID: 0}
 --- !u!1 &2956677481907681510
 GameObject:

@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7574875541525489577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ebfec4aa2deccf4ba6fc6bae2415eee, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bace972f4071b43950efca77f96ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hose
   nozzlePrefab: {fileID: 6727863462414785696, guid: 1e095a1fa06968044b7896cfa050c8db, type: 3}

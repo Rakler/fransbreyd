@@ -7,10 +7,12 @@ public class CountdownTimer : MonoBehaviour
     public bool timerIsRunning = false;
     public TextMeshProUGUI timerText; 
     public GameObject gameOverScreen; // assign in Inspector
+    SceneLoader sceneLoader;
 
     private void Start()
     {
         timerIsRunning = true;
+        sceneLoader = new SceneLoader();
         // gameOverScreen.SetActive(false); // make sure it starts hidden
     }
 
@@ -47,6 +49,7 @@ public class CountdownTimer : MonoBehaviour
     void TriggerGameOver()
     {
         Debug.Log("⏰ Game Over!");
+        sceneLoader.LoadScene("GameOver");
         // gameOverScreen.SetActive(true); // show game over UI
         // You can also pause the game here if needed:
         // Time.timeScale = 0f;

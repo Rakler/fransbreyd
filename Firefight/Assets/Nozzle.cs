@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Nozzle : MonoBehaviour
@@ -63,20 +64,6 @@ public class Nozzle : MonoBehaviour
             StartCoroutine(PlaySpraySounds());
         }
 
-        // if (audioSource && sprayStartSound)
-        // {
-        //     audioSource.clip = sprayStartSound;
-        //     audioSource.loop = false;
-        //     audioSource.Play();
-
-        //     // Queue up the loop sound to start after the start sound finishes
-        //     if (sprayLoopSound)
-        //     {
-        //         audioSource.PlayScheduled(AudioSettings.dspTime + sprayStartSound.length);
-        //         audioSource.loop = true;
-        //         audioSource.clip = sprayLoopSound;
-        //     }
-        // }
     }
 
     IEnumerator PlaySpraySounds()
@@ -102,13 +89,29 @@ public class Nozzle : MonoBehaviour
         if (jet) jet.gameObject.SetActive(false);
         if (impact) impact.gameObject.SetActive(false);
 
-        if (audioSource)
+        if (audioSource && sprayStopSound)
         {
-            audioSource.Stop();
-            audioSource.loop = false;
-            audioSource.clip = null;
+            if (sprayStopSound)
+            {
+                StartCoroutine(PlaySprayStopSound());
+            }
+            else
+            {
+                audioSource.Stop(); // Stop any current sound
+                audioSource.loop = false;
+                audioSource.clip = null;
+            }
         }
+    }
 
+    IEnumerator PlaySprayStopSound()
+    {
+        audioSource.clip = sprayStopSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(sprayStopSound.length);
+        audioSource.Stop(); // Stop any current sound
+        audioSource.loop = false;
+        audioSource.clip = null;
     }
 
     void FixedUpdate()
