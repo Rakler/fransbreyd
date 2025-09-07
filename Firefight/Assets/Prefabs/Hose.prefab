@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8026449401697275319}
-  - component: {fileID: 6932712062675191267}
+  - component: {fileID: -4814103846145987259}
   m_Layer: 0
   m_Name: Hose
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6932712062675191267
+--- !u!114 &-4814103846145987259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7574875541525489577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bace972f4071b43950efca77f96ebe, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ebfec4aa2deccf4ba6fc6bae2415eee, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoseManager
+  m_EditorClassIdentifier: Assembly-CSharp::Hose
   nozzlePrefab: {fileID: 6727863462414785696, guid: 1e095a1fa06968044b7896cfa050c8db, type: 3}
   hoseSectionPrefab: {fileID: 998015711325798553, guid: 542896b1ca62eda4eae0228a26f481fa, type: 3}
   anchorPosition: {x: 0, y: 0}
   maxLength: 300
   isVertical: 0
   hoseSegmentSpacing: 0.01
-  nozzle: {fileID: 0}
+  nozzle: {fileID: 6727863462414785696, guid: 1e095a1fa06968044b7896cfa050c8db, type: 3}

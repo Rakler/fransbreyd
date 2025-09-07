@@ -124,17 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8026449401697275319, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
   m_PrefabInstance: {fileID: 154934542}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &107890891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6932712062675191267, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
-  m_PrefabInstance: {fileID: 154934542}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bace972f4071b43950efca77f96ebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoseManager
 --- !u!1001 &154934542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +132,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1883143111}
     m_Modifications:
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: length
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: maxLength
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: isVertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: extendSlack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: tailAnchorBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: anchorPosition.x
+      value: -1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: anchorPosition.y
+      value: 3.8842
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: hoseSegmentSpacing
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6932712062675191267, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
       propertyPath: maxLength
       value: 300
@@ -169,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026449401697275319, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.113
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 8026449401697275319, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
       propertyPath: m_LocalPosition.z
@@ -237,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a6aed57ce49b241a89b9b6e4876b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  hose1: {fileID: 898035883}
-  hose2: {fileID: 107890891}
+  hose1: {fileID: 0}
+  hose2: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
 --- !u!4 &209977021
@@ -365,7 +386,7 @@ PrefabInstance:
     - target: {fileID: -9097706759659324565, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
       propertyPath: hose
       value: 
-      objectReference: {fileID: 107890891}
+      objectReference: {fileID: 1702858668}
     - target: {fileID: -9097706759659324565, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
       propertyPath: joystickNum
       value: 2
@@ -510,17 +531,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8026449401697275319, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
   m_PrefabInstance: {fileID: 7853625254407334509}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &898035883 stripped
+--- !u!114 &916265983 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6932712062675191267, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+  m_CorrespondingSourceObject: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
   m_PrefabInstance: {fileID: 7853625254407334509}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bace972f4071b43950efca77f96ebe, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ebfec4aa2deccf4ba6fc6bae2415eee, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoseManager
+  m_EditorClassIdentifier: Assembly-CSharp::Hose
 --- !u!1 &1100139951
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   joystickNum: 
   moveSpeed: 15
-  hose: {fileID: 898035883}
+  hose: {fileID: 0}
   hand: {fileID: 0}
   pickupRange: 0.9
   maxSpeed: 8
@@ -823,7 +844,7 @@ PrefabInstance:
     - target: {fileID: -9097706759659324565, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
       propertyPath: hose
       value: 
-      objectReference: {fileID: 898035883}
+      objectReference: {fileID: 916265983}
     - target: {fileID: -5328877951994899559, guid: 88d464aaa2c83bf43ac67813bf791c23, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -1017,6 +1038,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1702858668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+  m_PrefabInstance: {fileID: 154934542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebfec4aa2deccf4ba6fc6bae2415eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hose
 --- !u!1 &1736439125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1482,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1883143111}
     m_Modifications:
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: length
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: maxLength
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: isVertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: anchorPosition.y
+      value: 3.8842
+      objectReference: {fileID: 0}
+    - target: {fileID: -4814103846145987259, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
+      propertyPath: hoseSegmentSpacing
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6932712062675191267, guid: 01d1e9b5eb89f714ca44ea29ff6e2b34, type: 3}
       propertyPath: length
       value: 200

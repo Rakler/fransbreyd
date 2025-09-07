@@ -8,7 +8,7 @@ public class Hose : MonoBehaviour
     public Rigidbody2D nozzlePrefab;
     public Rigidbody2D hoseSectionPrefab;
     public Vector2 anchorPosition;
-    public int length { get; private set; } = 150;
+    public int length = 150;
     public int maxLength = 300;
     public bool isVertical;
     public float hoseSegmentSpacing = 0.01f;
@@ -69,6 +69,8 @@ public class Hose : MonoBehaviour
             pos += step * hoseSegmentSpacing;
         }
     }
+    
+    
 
 
     public void UpdateLength(int length)
@@ -99,7 +101,7 @@ public class Hose : MonoBehaviour
                     {
                         segments[i] = Instantiate(prefab, pos, Quaternion.identity);
                     }
-                    
+
                 }
 
             }
@@ -108,7 +110,7 @@ public class Hose : MonoBehaviour
         {
             return;
         }
-        
-        
+
+
     }
 }
